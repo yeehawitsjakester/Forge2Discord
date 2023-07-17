@@ -68,6 +68,7 @@ cd "$SAVED" >&-
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
 # Determine the Java command to use to start the JVM.
+JAVA_HOME="/home/yeehawitsjake/.jdks/semeru-1.8.0_382"
 if [ -n "$JAVA_HOME" ] ; then
     if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
         # IBM's JDK on AIX uses strange locations for the executables
