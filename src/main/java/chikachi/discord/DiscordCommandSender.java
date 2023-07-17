@@ -38,7 +38,7 @@ import java.util.concurrent.ScheduledExecutorService;
 @SuppressWarnings("EntityConstructor")
 @ParametersAreNonnullByDefault
 public class DiscordCommandSender extends FakePlayer {
-    private static final UUID playerUUID = UUID.fromString("828653ca-0185-43d4-b26d-620a7f016be6");
+    private static final UUID playerUUID = UUID.fromString("f84c6a79-0a4e-45e0-879b-cd49ebd4c4e2");
     private static final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor(
         new ThreadFactoryBuilder()
             .setNameFormat(DiscordCommandSender.class.getSimpleName())

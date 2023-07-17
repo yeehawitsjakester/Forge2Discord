@@ -14,9 +14,7 @@
 
 package chikachi.discord.core.config.minecraft;
 
-import com.google.gson.annotations.Since;
-
 public class MinecraftIntegrationConfig {
-    @Since(3.0)
-    public boolean dynmapEnabled = true;
+    //@Since(3.0)
+    //public boolean dynmapEnabled = true;
 }

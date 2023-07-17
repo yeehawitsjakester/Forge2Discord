@@ -68,6 +68,7 @@ public class DiscordListener extends ListenerAdapter {
             DiscordChannelGenericConfig channelConfig;
             ArrayList<Integer> dimensions;
             boolean stripMinecraftCodes = discordConfig.channels.generic.stripMinecraftCodes;
+
             if (discordConfig.channels.channels.containsKey(channelId)) {
                 channelConfig = discordConfig.channels.channels.get(channelId);
                 dimensions = channelConfig.relayChat.getDimensions(discordConfig.channels.generic.relayChat);
@@ -90,7 +91,8 @@ public class DiscordListener extends ListenerAdapter {
                 NBTTagCompound userTagComponent = new NBTTagCompound();
                 userTagComponent.setString("id", event.getAuthor().getId());
                 userTagComponent.setString("username", event.getAuthor().getName());
-                userTagComponent.setString("discriminator", event.getAuthor().getDiscriminator());
+                //Discriminators are now deprecated in Discord, thanks for the wonderful change Discord! /s
+                //userTagComponent.setString("discriminator", event.getAuthor().getDiscriminator());
 
                 eventTagCompound.setTag("user", userTagComponent);
                 eventTagCompound.setString("message", content);

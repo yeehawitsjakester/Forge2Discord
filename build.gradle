@@ -20,7 +20,7 @@ apply plugin: 'com.diffplug.gradle.spotless'
 
 def mcVersion = '1.7.10'
 def forgeVersion = '10.13.4.1558'
-def modVersion = '3.0.5'
+def modVersion = '3.0.6a2'
 
 def jdaVersion = '3.5.1'
 def jdaJob = 339
@@ -146,7 +146,7 @@ def JDADependencyDownloader = {
 
 // Dependencies on CurseForge
 List<CurseForgeDependencyInfo> curseForgeDependencies = new ArrayList<CurseForgeDependencyInfo>()
-curseForgeDependencies.add(new CurseForgeDependencyInfo("Dynmap", "2.4-forge-1.7.10", "jar", "2380586"))
+//curseForgeDependencies.add(new CurseForgeDependencyInfo("Dynmap", "2.4-forge-1.7.10", "jar", "2380586"))
 
 dependencies {
   shade JDADependencyDownloader()

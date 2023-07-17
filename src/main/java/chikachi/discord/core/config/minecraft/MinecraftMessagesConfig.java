@@ -73,9 +73,19 @@ public class MinecraftMessagesConfig {
         if (this.command == null) {
             this.command = new MessageConfig(COMMAND_NORMAL, COMMAND_WEBHOOK);
         }
-        if (this.command.normal == null || this.chatMessage.normal.trim().length() == 0) {
+        if (this.command.normal == null || this.chatMessage.normal.trim().length() == 0 && this.command.normal != "help") {
             this.command.normal = COMMAND_NORMAL;
         }
+
+        //Ignore list commands that ApexMC appears to generate through their own stuffs
+        if (this.command.normal == "list") {
+            return; //fair warning: i know buttfuck all about Java. this is a learning path!
+        }
+        //this is for test - making sure im actually doing it right
+        if (this.command.normal == "help") {
+            return;
+        }
+
         if (this.command.webhook == null || this.chatMessage.webhook.trim().length() == 0) {
             this.command.webhook = COMMAND_WEBHOOK;
         }
