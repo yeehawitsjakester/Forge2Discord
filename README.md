@@ -1,6 +1,7 @@
 # ![](http://media-elerium.cursecdn.com/avatars/46/357/636053578365458286.png) **DiscordIntegration**
 
-[![Build Status](https://build.chikachi.net/buildStatus/icon?job=Chikachi/DiscordIntegration/1.7.10)](https://build.chikachi.net/job/Chikachi/job/DiscordIntegration/job/1.7.10/)
+<!> This mod has been modified to fit certain needs and wants with a local friend group server I use at Apex Hosting. It's also being used somewhat as a start to learning Java. Expect some bad code and no optimizations! ~Jakester
+
 
 This mod combines your Discord with your Minecraft server.
 
