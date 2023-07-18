@@ -147,8 +147,9 @@ public class MinecraftListener {
             if (event.parameters.length > 0 && event.parameters[0].equalsIgnoreCase("link")) {
                 return;
             }
-        } else if (commandName.equalsIgnoreCase("link")) {
+        } else if (commandName.equalsIgnoreCase("list")) {
             //Ignore ApexMCs Link command being issued automatically every couple of minutes.
+            //I may be at least 1% idiot...it's "link" not "list" I am trying to ignore. Oops
             return;
         } else if (commandName.equalsIgnoreCase("help")) {
             //Used for testing, dont need to see when people use help anyways.
