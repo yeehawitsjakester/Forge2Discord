@@ -71,6 +71,7 @@ public class MinecraftMessagesConfig {
         }
 
         if (this.command == null) {
+
             this.command = new MessageConfig(COMMAND_NORMAL, COMMAND_WEBHOOK);
         }
         if (this.command.normal == null || this.chatMessage.normal.trim().length() == 0 && this.command.normal != "help") {

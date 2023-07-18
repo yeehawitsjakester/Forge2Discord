@@ -147,6 +147,12 @@ public class MinecraftListener {
             if (event.parameters.length > 0 && event.parameters[0].equalsIgnoreCase("link")) {
                 return;
             }
+        } else if (commandName.equalsIgnoreCase("link")) {
+            //Ignore ApexMCs Link command being issued automatically every couple of minutes.
+            return;
+        } else if (commandName.equalsIgnoreCase("help")) {
+            //Used for testing, dont need to see when people use help anyways.
+            return;
         }
 
         ArrayList<Long> channels;
