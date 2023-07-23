@@ -30,7 +30,7 @@ public class MinecraftMessagesConfig {
     private transient static final String PLAYER_LEAVE_NORMAL = "**{USER}** just left the server!";
     private transient static final String PLAYER_LEAVE_WEBHOOK = "*Left the server!*";
 
-    private transient static final String PLAYER_DEATH_NORMAL = "**{USER}** just died due to {REASON}!";
+    private transient static final String PLAYER_DEATH_NORMAL = "{REASON}";
     private transient static final String PLAYER_DEATH_WEBHOOK = "*{REASON}*";
 
     private transient static final String ACHIEVEMENT_NORMAL = "**{USER}** just gained the achievement **{ACHIEVEMENT}**!\n*{DESCRIPTION}*";
@@ -111,7 +111,7 @@ public class MinecraftMessagesConfig {
             this.playerLeave.webhook = PLAYER_LEAVE_WEBHOOK;
         }
 
-        if (this.playerDeath == null) {
+        if (this.playerDeath == null || this.playerDeath != null) {
             this.playerDeath = new MessageConfig(PLAYER_DEATH_NORMAL, PLAYER_DEATH_WEBHOOK);
         }
         if (this.playerDeath.normal == null || this.playerDeath.normal.trim().length() == 0) {

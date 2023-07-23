@@ -39,6 +39,7 @@ import net.minecraftforge.event.CommandEvent;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.AchievementEvent;
+import scala.util.Random;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -211,7 +212,8 @@ public class MinecraftListener {
         DiscordClient.getInstance().broadcast(
             new Message()
                 .setAuthor(authorName)
-                .setAvatarUrl(avatarUrl)
+                //TODO: Avatar URL doesn't seem to work.
+                .setAvatarUrl( )
                 .setMessage(messageConfig)
                 .setArguments(arguments)
                 .setParsing(false),
@@ -364,6 +366,7 @@ public class MinecraftListener {
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
+    //TODO: Check FML to see if player left on their own or if server/client had issues due to missing mods. If missing mods, report what mods in Discord from what end.
     public void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent event) {
         if (event.isCanceled() || event.player == null) return;
 
@@ -403,6 +406,40 @@ public class MinecraftListener {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void onPlayerDeath(LivingDeathEvent event) {
+        final String[] deathMessage = {
+            "has been terminated abruptly.",
+            "made a minor miscalculation",
+            "was fucking obliterated.",
+            "has deathed.", //dont you dare correct me on this
+            "is no longer in this world",
+            "has been summoned to Hell.",
+            "tried to please a Protogen.",
+            "summoned Herobrine unsuccessfully.",
+            "was eaten by the Ender Dragon.",
+            "was yoted.",
+            "failed to rizz a Creeper into submission.",
+            "was consumed by a deer.",
+            "used his last Ender Pearl.",
+            "installed his RAM backwards.",
+            "has been hit with the Sound of Freedom by the UNITED STATES OF AMERICA BABY!",
+            "knocked on the wrong door.",
+            "went the wrong way in the labyrinth.",
+            "Insert Text Here.",
+            "tried to slam dunk a Zombie.",
+            "did not find the way of God in time.",
+            "had one too many warrants out for his arrest.",
+            "touched the wrong block.",
+            "wired two of the wrong cables together.",
+            "cut the blue wire instead of the green wire.",
+            "shit themselves.",
+            "pissed under his desk to assert dominance to IKEA products.",
+            "tried to feed the sergals.",
+            "has [REDACTED]",
+            "has undefined",
+            "has null",
+        };
+        int rnd = new Random().nextInt(deathMessage.length);
+
         EntityLivingBase entityLiving = event.entityLiving;
 
         if (event.isCanceled() || entityLiving == null) return;
@@ -410,8 +447,22 @@ public class MinecraftListener {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer entityPlayer = (EntityPlayer) entityLiving;
 
+
+            //TODO: Have a list of random death responses.
+            //Update: We can't seem to extract *only* the entity that killed the player. This will be looked into later on, but for the time being this is our substitute
             HashMap<String, String> arguments = new HashMap<>();
-            arguments.put("REASON", entityPlayer.func_110142_aN().func_151521_b().getUnformattedText().replace(entityPlayer.getDisplayName(), "").trim());
+            //is this arguments.put replacing the {REASON} in our death message to Discord?
+            //yes, yes it is: <DEV> Player867 just died due to big whale balls!
+            //what the fuck are these func's? why are these not named?!
+            //if(EntityDamageSource.generic.getSourceOfDamage() != null) {
+            // String killerEntity = entityPlayer.func_110142_aN().func_151521_b().getUnformattedText().replace(entityPlayer.getDisplayName(), "").trim();
+
+            //}
+            //System.out.println(EntityDamageSource.generic.getSourceOfDamage());
+
+            arguments.put("REASON",":skull_crossbones: **"+entityPlayer.getDisplayName()+"**"+" "+deathMessage[rnd]);
+            System.out.println(entityPlayer.getDisplayName()+" "+deathMessage[rnd]);
+            //arguments.put("REASON", entityPlayer.func_110142_aN().func_151521_b().getUnformattedText().replace(entityPlayer.getDisplayName(), "").trim());
 
             MinecraftConfig minecraftConfig = Configuration.getConfig().minecraft;
             MinecraftDimensionConfig dimensionConfig = minecraftConfig.dimensions.getDimension(entityLiving.dimension);

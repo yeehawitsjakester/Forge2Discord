@@ -334,6 +334,7 @@ public class CoreUtils {
     }
 
     public static String getAvatarUrl(String minecraftUsername) {
-        return String.format("https://minotar.net/helm/%s/128.png", minecraftUsername);
+        //never notice that the avatar actually shows, so this is a test.
+        return String.format("https://minotar.net/helm/"+minecraftUsername+"/128.png");
     }
 }
