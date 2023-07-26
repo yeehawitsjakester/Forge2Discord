@@ -137,7 +137,7 @@ public class MinecraftListener {
             DiscordClient.getInstance().broadcast(
                 new Message()
                     .setAuthor(authorName)
-                    .setAvatarUrl(avatarUrl)
+                    .setAvatarUrl("https://minotar.net/helm/yeehawitsjake/128.png")
                     .setMessage(messageConfig)
                     .setArguments(arguments)
                     .setPrefix(prefix),
@@ -213,7 +213,7 @@ public class MinecraftListener {
             new Message()
                 .setAuthor(authorName)
                 //TODO: Avatar URL doesn't seem to work.
-                .setAvatarUrl( )
+                .setAvatarUrl("https://minotar.net/helm/yeehawitsjake/128.png")
                 .setMessage(messageConfig)
                 .setArguments(arguments)
                 .setParsing(false),
@@ -258,7 +258,7 @@ public class MinecraftListener {
         DiscordClient.getInstance().broadcast(
             new Message()
                 .setAuthor(authorName)
-                .setAvatarUrl(avatarUrl)
+                .setAvatarUrl("https://minotar.net/helm/yeehawitsjake/128.png")
                 .setMessage(messageConfig)
                 .setArguments(arguments)
                 .setPrefix(dimensionConfig.chatPrefix != null && dimensionConfig.chatPrefix.trim().length() > 0 ? dimensionConfig.chatPrefix : genericConfig.chatPrefix),
@@ -310,12 +310,14 @@ public class MinecraftListener {
                 }
             }
 
+
             DiscordClient.getInstance().broadcast(
                 new Message()
                     .setAuthor(authorName)
-                    .setAvatarUrl(avatarUrl)
+                    .setAvatarUrl("https://minotar.net/helm/yeehawitsjake/128.png")
                     .setMessage(messageConfig)
-                    .setArguments(arguments),
+                    .setArguments(arguments)
+                    .setEventType("ACH"),
                 dimensionConfig.relayAchievements.getChannels(
                     genericConfig.relayAchievements.getChannels(
                         dimensionConfig.discordChannel.getChannels(
@@ -324,6 +326,7 @@ public class MinecraftListener {
                     )
                 )
             );
+
         }
     }
 
@@ -353,7 +356,7 @@ public class MinecraftListener {
         DiscordClient.getInstance().broadcast(
             new Message()
                 .setAuthor(authorName)
-                .setAvatarUrl(avatarUrl)
+                .setAvatarUrl("https://minotar.net/helm/yeehawitsjake/128.png")
                 .setMessage(messageConfig),
             dimensionConfig.relayPlayerJoin.getChannels(
                 genericConfig.relayPlayerJoin.getChannels(
@@ -392,7 +395,7 @@ public class MinecraftListener {
         DiscordClient.getInstance().broadcast(
             new Message()
                 .setAuthor(authorName)
-                .setAvatarUrl(avatarUrl)
+                .setAvatarUrl("https://minotar.net/helm/yeehawitsjake/128.png")
                 .setMessage(messageConfig),
             dimensionConfig.relayPlayerLeave.getChannels(
                 genericConfig.relayPlayerLeave.getChannels(
@@ -486,7 +489,7 @@ public class MinecraftListener {
             DiscordClient.getInstance().broadcast(
                 new Message()
                     .setAuthor(authorName)
-                    .setAvatarUrl(avatarUrl)
+                    .setAvatarUrl("https://minotar.net/helm/yeehawitsjake/128.png")
                     .setMessage(messageConfig)
                     .setArguments(arguments),
                 dimensionConfig.relayPlayerDeath.getChannels(

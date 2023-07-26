@@ -17,20 +17,23 @@ package chikachi.discord.core;
 import chikachi.discord.core.config.Configuration;
 import chikachi.discord.core.config.types.MessageConfig;
 import com.vdurmont.emoji.EmojiParser;
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.Permission;
 import net.dv8tion.jda.core.entities.Channel;
 import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.Role;
 import net.dv8tion.jda.core.entities.TextChannel;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.regex.Matcher;
 
 public class Message {
-    private String author = null;
-    private String avatarUrl = null;
+    private String author = "Herobrine";
+    private String avatarUrl = "https://minotar.net/helm/Herobrine/128.png";
     private String prefix = null;
+    private String EventType = null;
     private MessageConfig message = null;
     private HashMap<String, String> arguments = null;
     private boolean parsing = true;
@@ -58,11 +61,25 @@ public class Message {
         this(author, avatarUrl, message, new HashMap<>());
     }
 
-    public Message(String author, String avatarUrl, MessageConfig message, HashMap<String, String> arguments) {
+    public Message(String author, String avatarUrl, MessageConfig message, HashMap<String, String> arguments, String EventType) {
         this.author = author;
         this.avatarUrl = avatarUrl;
         this.message = message;
+        this.EventType = EventType;
 
+        if(EventType == "ACH") {
+            EmbedBuilder eb = new EmbedBuilder();
+            eb.setTitle("Title", null);
+            eb.setColor(Color.red);
+            eb.setDescription("Text");
+            eb.addField("Title of field", "test of field", false);
+            eb.addBlankField(false);
+            eb.setAuthor("name", null, "https://github.com/zekroTJA/DiscordBot/blob/master/.websrc/zekroBot_Logo_-_round_small.png");
+            eb.setFooter("Text", "https://github.com/zekroTJA/DiscordBot/blob/master/.websrc/zekroBot_Logo_-_round_small.png");
+            eb.setImage("https://github.com/zekroTJA/DiscordBot/blob/master/.websrc/logo%20-%20title.png");
+            eb.setThumbnail("https://github.com/zekroTJA/DiscordBot/blob/master/.websrc/logo%20-%20title.png");
+
+        }
         if (arguments == null) {
             this.arguments = new HashMap<>();
         } else {
